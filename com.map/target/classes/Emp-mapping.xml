@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.hibernate.com.map.Emp" table="emp_402">
+		<id name="id" column="eid"></id>
+		<property name="name" column = "ename"></property>
+		<map name = "address" table = "address_402" cascade = "all">
+			<key column = "id"></key>
+			<index column = "type" type = "int" ></index>
+			<one-to-many class = "com.hibernate.com.map.Address"/>
+		</map>
+	</class>
+	<class name= "com.hibernate.com.map.Address" table = "address_402">
+		<id name = "aid" ></id>
+		<property name ="state"  ></property>
+		<property name ="country" ></property>
+	</class>
+
+</hibernate-mapping>
